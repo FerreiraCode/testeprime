@@ -7,10 +7,24 @@ Library    FakerLibrary    locale=pt_BR
 
 *** Test Cases ***
 
-Realizar Login
-
+Realizar Alteracao de Informacoes do Cadastro
     Login
-
-Acessar tela "My Info"
-
-    My Info
+    My Info 
+    Limpar Campos
+    Primeiro Nome
+    Nome do Meio
+    Ultimo Nome
+    Nickname
+    ID de Funcionário
+    Outro ID
+    CNH
+    Vencimento da CNH
+    Número da SSN
+    Número da SIN
+    Nacionalidade
+    Estado Civil
+    Data de Nascimento
+    Genero
+    Serviço Militar
+    Fumante
+    Tipo Sanguineo
