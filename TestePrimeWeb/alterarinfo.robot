@@ -42,11 +42,16 @@ Escrever dados Pessoais do usuário
     Data de Nascimento
     Genero
 
-Escrever numero de serviço militar e dados de Saúde do usuário
+Escrever numero de serviço militar e se é fumante ou não
 
     Serviço Militar
     Fumante
+    Salvar Informações
+
+Selecionar o Tipo Sanguineo
+
     Tipo Sanguineo
+    Salvar Tipo Sanguineo
 
 
 Adicionar um Anexo

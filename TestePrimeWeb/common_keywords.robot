@@ -36,7 +36,7 @@ Limpar Campos
     Press Keys    (//input[contains(@class,'oxd-input oxd-input--active')])[9]   ${DELETE}
     Press Keys    (//input[contains(@class,'oxd-input oxd-input--active')])[10]  ${DELETE}
     Press Keys    (//input[@placeholder='yyyy-mm-dd'])[1]   ${DELETE}
-    Press Keys    //label[contains(.,'Nickname')]   ${SCROLL}
+    Press Keys    (//span[contains(@class,'oxd-radio-input oxd-radio-input--active --label-right oxd-radio-input')])[1]   ${SCROLL}
     Press Keys    (//input[contains(@class,'oxd-input oxd-input--active')])[13]   ${DELETE}
     Press Keys    (//input[@placeholder='yyyy-mm-dd'])[2]   ${DELETE}
     Sleep   4s
