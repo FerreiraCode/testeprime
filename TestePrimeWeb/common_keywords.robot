@@ -12,15 +12,15 @@ Login
     Create Webdriver     ${BROWSER}
     Maximize Browser Window
     Go to    ${URL}
-    Wait Until Element is Visible   //h5[contains(.,'Login')]
+    Wait Until Element is Visible   //input[@name='username']
     Input Text    //input[@name='username']   ${USERNAME}
     Input Password    //input[@name='password']   ${PASSWORD}
-    Click Button   //button[@type='submit'][contains(.,'Login')]
-    Wait Until Element is Visible   //a[contains(.,'My Info')]
+    Click Button   //button[@type='submit']
+    Wait Until Element is Visible   //a[@href='/web/index.php/pim/viewMyDetails']
 
 My Info 
 
-    Click Element   //a[contains(.,'My Info')]
+    Click Element   //a[@href='/web/index.php/pim/viewMyDetails']
     Wait Until Element is Visible    //input[@name='firstName']
     Sleep   4s
 
@@ -36,7 +36,7 @@ Limpar Campos
     Press Keys    (//input[contains(@class,'oxd-input oxd-input--active')])[9]   ${DELETE}
     Press Keys    (//input[contains(@class,'oxd-input oxd-input--active')])[10]  ${DELETE}
     Press Keys    (//input[@placeholder='yyyy-mm-dd'])[1]   ${DELETE}
-    Press Keys    //label[@class='oxd-label'][contains(.,'License Expiry Date')]   ${SCROLL}
+    Press Keys    //label[contains(.,'Nickname')]   ${SCROLL}
     Press Keys    (//input[contains(@class,'oxd-input oxd-input--active')])[13]   ${DELETE}
     Press Keys    (//input[@placeholder='yyyy-mm-dd'])[2]   ${DELETE}
     Sleep   4s
@@ -94,12 +94,13 @@ Número da SIN
 
     ${SIN}     FakerLibrary.cnpj
     Input Text   (//input[contains(@class,'oxd-input oxd-input--active')])[10]  ${SIN}
-    Press Keys    //label[@class='oxd-label'][contains(.,'License Expiry Date')]   ${SCROLL}
+    Press Keys    //label[contains(.,'Nickname')]   ${SCROLL}
     Sleep   2s
-
+    
 Nacionalidade
 
-    Click Element   (//div[@clear='false'])[1]
+    Wait Until Element Is Visible    (//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[1]
+    Click Element   (//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[1]
     Wait Until Element is Visible   //div[@role='option'][contains(.,'Brazilian')]
     Click Element   //div[@role='option'][contains(.,'Brazilian')]   
 
@@ -108,7 +109,6 @@ Estado Civil
     Click Element   (//div[@clear='false'])[2]
     Wait Until Element is Visible   //div[@role='option'][contains(.,'Other')]
     Click Element   //div[@role='option'][contains(.,'Other')]   
-    Sleep   4s
 
 Data de Nascimento
 
@@ -117,8 +117,8 @@ Data de Nascimento
 
 Genero
 
-    Click Element   //label[contains(.,'Male')]
-    Press Keys    //label[@class='oxd-label'][contains(.,'License Expiry Date')]   ${SCROLL}
+    Click Element   (//span[contains(@class,'oxd-radio-input oxd-radio-input--active --label-right oxd-radio-input')])[1]
+    Press Keys    //label[contains(.,'Nickname')]   ${SCROLL}
 
 Serviço Militar
 
@@ -127,22 +127,36 @@ Serviço Militar
 
 Fumante
 
-    Click Element   //label[contains(.,'Yes')]
-    Press Keys    //label[@class='oxd-label'][contains(.,'License Expiry Date')]   ${SCROLL}
+    Click Element   (//i[contains(@class,'oxd-icon bi-check oxd-checkbox-input-icon')])[1]
+    Press Keys    (//i[contains(@class,'oxd-icon bi-check oxd-checkbox-input-icon')])[1]  ${SCROLL}
+    Sleep   2s
+
 Salvar Informações
 
     Click Button   (//button[@type='submit'][contains(.,'Save')])[1]
-
+    Wait Until Element Is Visible   //div[@class='oxd-toast oxd-toast--success oxd-toast-container--toast']
 Tipo Sanguineo
 
-    Click Element   (//div[contains(@class,'oxd-select-text-input')])[3]
-    Wait Until Element is Visible   //span[contains(.,'A+')]
-    Press Keys    //label[@class='oxd-label'][contains(.,'License Expiry Date')]   ${SCROLL}
-    Sleep    5s
+    Click Element   (//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[3]
+    Wait Until Element Is Visible    //div[@role='option'][contains(.,'O+')]
+    Click Element    //div[@role='option'][contains(.,'O+')]
+
+Salvar Tipo Sanguineo
+
+    Click Button   (//button[@type='submit'][contains(.,'Save')])[2]
+    Wait Until Element Is Visible   //div[@class='oxd-toast oxd-toast--success oxd-toast-container--toast']
 
 Adicionar Anexo
 
+    ${ANEXO}     FakerLibrary.Text    max_nb_chars=200
+    Click Element   (//button[contains(@type,'button')])[3]
+    Choose File    //input[@type='file']    ${PATH}
+    Press Keys    (//i[contains(@class,'oxd-icon bi-check oxd-checkbox-input-icon')])[1]  ${SCROLL}
+    Sleep   2s
+    Wait Until Element Is Visible    //textarea[@placeholder='Type comment here']
+    Input Text    //textarea[@placeholder='Type comment here']    ${ANEXO}
+    Click Button   (//button[@type='submit'][contains(.,'Save')])[3]
+    Wait Until Element Is Visible   //div[@class='oxd-toast oxd-toast--success oxd-toast-container--toast']
 
-Salvar
 
 
